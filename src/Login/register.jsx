@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../style/label.scss';
+import './style/index.scss';
 const myState = {
   username: '',
   password: ''
@@ -24,28 +24,37 @@ export default class Register extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <form onReset={this.reSetFrom} autoComplete="off">
+      <form onReset={this.reSetFrom} 
+      autoComplete="off" 
+       className="ysb-form-001">
         <label>
-          输入框：
+         <span className="ysb-span-001"> 用户名：</span>
           <input
+          className="ysb-input-001"
             type="text"
             value={username}
             onChange={this.handChange}
             name="username"
+            placeholder="请输入您的用户名"
           />
         </label>
         <label>
-          密码框：
+      <span className="ysb-span-001">密码框：</span>    
           <input
+           className="ysb-input-002"
             type="password"
             value={password}
             onChange={this.handChange}
             name="password"
+            placeholder="请输入您的密码"
           />
         </label>
         <label>
-          <button type="reset">重置</button>
-          <button type="button" onClick={this.register}>
+          <button
+           type="reset"
+           className="ysb-btn-001"
+          >重置</button>
+          <button type="button" onClick={this.register}   className="ysb-btn-002">
             注册
           </button>
         </label>

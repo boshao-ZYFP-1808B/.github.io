@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import './style/index.scss'
 export default class Login extends Component {
   constructor() {
     super();
@@ -61,8 +61,8 @@ export default class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <form>
-        <label>
+      <form className="ysb-form-002">
+        <label >
           <input
             autoComplete="off"
             type="text"
@@ -70,6 +70,7 @@ export default class Login extends Component {
             value={username}
             onChange={this.handleChange}
             placeholder="用户名"
+             className="ysb-input-003"
           />
         </label>
         <label>
@@ -80,11 +81,16 @@ export default class Login extends Component {
             name="password"
             onChange={this.handleChange}
             placeholder="密码"
+            className="ysb-input-004"
           />
         </label>
         <label>
-          <button type="button" onClick={this.onSubmit}>
-            登陆
+          <button type="button" 
+          onClick={this.onSubmit}
+          className="ysb-login"
+          >
+          
+           Login...
           </button>
         </label>
       </form>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Register from './components/register';
-import Login from './components/login';
-import Home from './components/home';
+import Register from './register';
+import Login from './login';
+import Home from '../components/home';
 
-export default class Index extends Component {
+class Index extends Component {
   constructor() {
     super();
     this.state = {
@@ -30,12 +30,6 @@ export default class Index extends Component {
         break;
     }
     return <div>{Dom}</div>;
-    // return (
-    //   <div>
-    //     <Register />
-    //     <Login />
-    //     <Home />
-    //   </div>
-    // );
   }
 }
+export default Index
