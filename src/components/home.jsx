@@ -1,20 +1,21 @@
-import React, {Component} from "react";
-import Mylayout from "./Layout/index";
+import React, { Component } from 'react';
+import Mylayout from './Layout/index';
+import { Spin } from 'antd';
 
 //受控组件和非受控组价
-import ComponentType from "./componentType/index";
+import ComponentType from './componentType/index';
 //条件渲染
-import Install from "./Install/index";
+import Install from './Install/index';
 //表单的使用
-import Cass from "./Cass-Z/index";
+import Cass from './Cass-Z/index';
 //边界错误
-import LifeCycle from "./LifeCycle-Z";
+import LifeCycle from './LifeCycle-Z';
 //React中的列表和diff
-import PropsContent   from "./PropsContent-Z/index";
+import PropsContent from './PropsContent-Z/index';
 //event事件对象
-import Classdiff from "./Classdiff/Classdiff";
+import Classdiff from './Classdiff/Classdiff';
 //调查问卷
-import Questionnaire from "./Questionnaire/index"
+import Questionnaire from './Questionnaire/index';
 
 export default class Home extends Component {
   constructor() {
@@ -35,40 +36,33 @@ export default class Home extends Component {
   };
   // 渲染函数
   render() {
-    let Dom = "";
+    let Dom = '';
     switch (this.state.isCom) {
-      case "ComponentType":
+      case 'ComponentType':
         Dom = <ComponentType />;
         break;
-      case "Install":
+      case 'Install':
         Dom = <Install />;
         break;
-      case "Cass":
+      case 'Cass':
         Dom = <Cass />;
         break;
-      case "LifeCycle":
+      case 'LifeCycle':
         Dom = <LifeCycle />;
         break;
-      case "Classdiff":
+      case 'Classdiff':
         Dom = <Classdiff />;
         break;
-      case "PropsContent":
+      case 'PropsContent':
         Dom = <PropsContent />;
         break;
-        case "Questionnaire":
-        Dom = <Questionnaire/>;
+      case 'Questionnaire':
+        Dom = <Questionnaire />;
         break;
-
     }
     return (
       <React.Fragment>
-        <Mylayout getsoudata={this.getSouData}>
-          {
-            Dom
-            // this.state.isCom === 'ReactBase' ? <ReactBase/> :
-            // this.state.isCom === 'ComponentType' ? <ComponentType/>
-          }
-        </Mylayout>
+        <Mylayout getsoudata={this.getSouData}>{Dom}</Mylayout>
       </React.Fragment>
     );
   }

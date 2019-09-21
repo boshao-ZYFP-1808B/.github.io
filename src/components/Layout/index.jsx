@@ -3,13 +3,17 @@ import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
 // 左侧一级导航的数据
 const leftNav = [
-  { iconType: 'video-camera', text: '受控组件和非受控组价', id: 'ComponentType' },
+  {
+    iconType: 'video-camera',
+    text: '受控组件和非受控组价',
+    id: 'ComponentType'
+  },
   { iconType: 'video-camera', text: '条件渲染', id: 'Install' },
   { iconType: 'read', text: '表单的使用', id: 'Cass' },
   { iconType: 'save', text: '边界错误', id: 'LifeCycle' },
   { iconType: 'switcher', text: 'React中的列表和diff', id: 'PropsContent' },
-  { iconType: "video-camera", text: "event事件对象", id: "Classdiff" },
-  { iconType: "video-camera", text: "调查问卷", id: "Questionnaire" }
+  { iconType: 'video-camera', text: 'event事件对象', id: 'Classdiff' },
+  { iconType: 'video-camera', text: '调查问卷', id: 'Questionnaire' }
 ];
 export default class Mylayout extends React.Component {
   constructor() {
@@ -67,7 +71,7 @@ export default class Mylayout extends React.Component {
               margin: '24px 16px',
               padding: 24,
               background: '#fff',
-              minHeight: 280
+              minHeight: 522
             }}
           >
             {/* 隐式渲染传递进来的组件 */}
