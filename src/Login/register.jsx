@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './style/index.scss';
 import { Button } from 'antd';
 const myState = {
@@ -8,11 +7,12 @@ const myState = {
   ispassword: '',
   email: ''
 };
-export default class Register extends Component {
+class Register extends Component {
   //重置表单事件
   reSetFrom = () => {
     this.setState(myState);
   };
+
   //改变state的值
   handChange = ({ target }) => {
     this.setState({
@@ -86,7 +86,7 @@ export default class Register extends Component {
             </button>
             <Button
               type="primary"
-              onClick={this.register}
+              onClick={this.onregister}
               className="ysb-btn-002"
             >
               注册
@@ -100,35 +100,38 @@ export default class Register extends Component {
     //1.前端验证，验证通过以后
     const { username, password, ispassword, email } = this.state;
     if (!username.trim() || username.length < 6) {
-      return alert('用户名不能为空,且长度不小于6位');
+      alert('用户名不能为空,且长度不小于6位');
+      return false;
     } else if (!password.trim() || !/^(\w){6,20}$/.test(password)) {
-      return alert('密码不能为空,且必须是6-20个字母、数字、下划线');
+      alert('密码不能为空,且必须是6-20个字母、数字、下划线');
+      return false;
     } else if (!(password === ispassword)) {
-      return alert('两次密码不一致，请检查密码');
+      alert('两次密码不一致，请检查密码');
+      return false;
     } else if (
-      !email.trim() ||
-      !/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/.test(email)
+      !email.trim()
+      // ||
+      // !/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/.test(email)
     ) {
-      return alert('邮箱格式不正确');
+      alert('邮箱格式不正确');
+    } else {
+      return true;
     }
-    //2.调用接口，接口饭hi的数据村到全局里面
-    //凡是实际到用户数据信息的，在接口中一定是用post请求方式
-    axios
-      .get('/api/register.json', { username, password, ispassword, email })
-      .then(res => {
-        if (res.status === 200) {
-          //将账号密码存到本地一份【注意：在真是的项目里，不能这样做，仅适用于测试本地开发】
-          sessionStorage.setItem(
-            'userRegister',
-            JSON.stringify({ username, password, ispassword, email })
-          );
-          // 3.控制跳转到登陆页面
-          this.props.getstatus({ ...res.data, typename: 'Login' });
-        } else {
-          alert('网络错误，稍后重试');
-        }
-      });
+  };
+  onregister = () => {
+    // alert();
+    if (this.register()) {
+      let obj = {};
+      obj.username = this.state.username;
+      obj.password = this.state.password;
+      sessionStorage.setItem('user', JSON.stringify(obj));
+      this.props.getstatus('Login');
+    }
+    // else {
+    //   alert('网络错误，稍后重试');
+    // }
   };
 }
+export default Register;
 // getItem 是获取
 //setItem 是设置

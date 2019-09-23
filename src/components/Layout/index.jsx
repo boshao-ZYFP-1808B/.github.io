@@ -6,14 +6,25 @@ const leftNav = [
   {
     iconType: 'video-camera',
     text: '受控组件和非受控组价',
-    id: 'ComponentType'
+    hash: 'ComponentType',
+    id: '1'
   },
-  { iconType: 'video-camera', text: '条件渲染', id: 'Install' },
-  { iconType: 'read', text: '表单的使用', id: 'Cass' },
-  { iconType: 'save', text: '边界错误', id: 'LifeCycle' },
-  { iconType: 'switcher', text: 'React中的列表和diff', id: 'PropsContent' },
-  { iconType: 'video-camera', text: 'event事件对象', id: 'Classdiff' },
-  { iconType: 'video-camera', text: '调查问卷', id: 'Questionnaire' }
+  { iconType: 'video-camera', text: '条件渲染', hash: 'Install', id: '2' },
+  { iconType: 'read', text: '表单的使用', hash: 'Cass', id: '3' },
+  { iconType: 'save', text: '边界错误', hash: 'LifeCycle', id: '4' },
+  {
+    iconType: 'switcher',
+    text: 'React中的列表和diff',
+    hash: 'PropsContent',
+    id: '5'
+  },
+  {
+    iconType: 'video-camera',
+    text: 'event事件对象',
+    hash: 'Classdiff',
+    id: '6'
+  },
+  { iconType: 'video-camera', text: '调查问卷', hash: 'Questionnaire', id: '7' }
 ];
 export default class Mylayout extends React.Component {
   constructor() {
@@ -29,8 +40,7 @@ export default class Mylayout extends React.Component {
       collapsed: !this.state.collapsed
     });
   };
-
-  render() {
+  render(props) {
     /*
     Layout:容器组件，包裹组件
     Sider：侧边栏，放导航的
@@ -38,17 +48,19 @@ export default class Mylayout extends React.Component {
     Menu：做折叠导航的组件
     Content：内容展示组件【重要】
     */
+    const { getstatus } = this.props;
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            {leftNav.map(item => {
+            {leftNav.map((item, index) => {
               return (
                 <Menu.Item
-                  key={item.id}
+                  key={index}
                   onClick={() => {
-                    this.props.getsoudata(item.id);
+                    getstatus(item.hash);
+                    // this.props.getsoudata(item.id);
                   }}
                 >
                   <Icon type={item.iconType} />

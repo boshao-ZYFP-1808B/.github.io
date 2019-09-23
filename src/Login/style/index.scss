@@ -20,8 +20,8 @@ label {
     background: rgba(255, 255, 255, 0.2);
     text-align: center;
     position: absolute;
-    top: 130px;
-    left: 430px;
+    top: 80px;
+    left: 450px;
 }
 
 h1 {
@@ -87,6 +87,10 @@ input {
     width: 180px;
     height: 30px;
     margin: 10px;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    border-radius: 5px;
 }
 
 .ysb-login {
