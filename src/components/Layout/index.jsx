@@ -60,7 +60,6 @@ export default class Mylayout extends React.Component {
                   key={index}
                   onClick={() => {
                     getstatus(item.hash);
-                    // this.props.getsoudata(item.id);
                   }}
                 >
                   <Icon type={item.iconType} />
