@@ -9,7 +9,7 @@ const leftNav = [
     hash: 'ComponentType',
     id: '1'
   },
-  { iconType: 'video-camera', text: '条件渲染', hash: 'Install', id: '2' },
+  { iconType: 'video-camera', text: 'form表单用法', hash: 'Install', id: '2' },
   { iconType: 'read', text: '表单的使用', hash: 'Cass', id: '3' },
   { iconType: 'save', text: '边界错误', hash: 'LifeCycle', id: '4' },
   {

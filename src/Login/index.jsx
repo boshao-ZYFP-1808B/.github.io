@@ -16,7 +16,7 @@ import PropsContent from '../components/PropsContent-Z';
 //event事件对象
 import Classdiff from '../components/Classdiff/Classdiff';
 //调查问卷
-import Questionnaire from '../components/Questionnaire';
+import Questionnaire from '../components/Questionnaire/';
 class Index extends Component {
   constructor() {
     super();
