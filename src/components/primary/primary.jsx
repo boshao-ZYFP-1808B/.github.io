@@ -102,7 +102,6 @@ export default class Classdiff extends Component {
               推荐使用箭头函数
               因为箭头函数自身没有this.需要向最近的作用域去找this.基于该特性，我们省去了显示绑定this.
             </p>
-            <h1>wolaile</h1>
           </Modal>
           <div>
             <img src={tupian} style={{ marginLeft: '190px' }} />

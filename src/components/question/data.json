@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "type": "radio",
+        "problem": "你喜欢吃水果吗?",
+        "labels": [
+            {
+                "id": 1,
+                "label": "喜欢",
+                "value": "like"
+            },
+            {
+                "id": 2,
+                "label": "不喜欢",
+                "value": "nolike"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "type": "checkbox",
+        "problem": "你喜欢吃什么水果?",
+        "labels": [
+            {
+                "id": 0,
+                "label": "苹果",
+                "value": "pg",
+                "chec": false
+            },
+            {
+                "id": 1,
+                "label": "香蕉",
+                "value": "xj",
+                "chec": false
+            },
+            {
+                "id": 2,
+                "label": "火龙果",
+                "value": "hlg",
+                "chec": false
+            },
+            {
+                "id": 3,
+                "label": "梨",
+                "value": "hlg",
+                "chec": false
+            },
+            {
+                "id": 4,
+                "label": "葡萄",
+                "value": "hlg",
+                "chec": false
+            }
+        ]
+    }
+]

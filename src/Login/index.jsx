@@ -1,27 +1,22 @@
 import React, { Component } from 'react';
 import Register from './register';
 import Login from './login';
-import Mylayout from '../components/Layout';
+
 
 //受控组件和非受控组价
 import ComponentType from '../components/componentType';
-//条件渲染
-import Install from '../components/Install';
-//表单的使用
-import Cass from '../components/Cass-Z';
-//边界错误
-import LifeCycle from '../components/LifeCycle-Z';
-//React中的列表和diff
-import PropsContent from '../components/PropsContent-Z';
-//event事件对象
-import Classdiff from '../components/Classdiff/Classdiff';
-//调查问卷
-import Questionnaire from '../components/Questionnaire/';
+
+import Layzy from'../layzy/index' //结构组件
+import Content1 from '../components/primary/primary'//初级内容
+import Content2 from'../components/intermediate/index'  // 中级内容
+import Content3 from '../components/senior/index'//高级内容
+import Question from '../components/question/index'//表单
 class Index extends Component {
   constructor() {
     super();
     this.state = {
-      isCom: window.location.hash.slice(1) || 'Register'
+      isCom: window.location.hash.slice(1) || 'Register',
+      const:''
     };
     window.onhashchange = () => {
       this.setState({
@@ -29,40 +24,41 @@ class Index extends Component {
       });
     };
   }
+// 收听子组件传递数据
+getSouData = id => {
+  window.location.hash = id;
+};
+//改变consts的值
+ changeconsts =(id)=>{
+   this.setState({
+    consts :id
+   })
+  console.log(id)
+ }
   //获取返回组件的状态
   getstatus = data => {
     window.location.hash = data;
   };
   render() {
     let Dom = '';
-    switch (this.state.isCom) {
+    switch (this.state.consts) {
       case 'Register':
         Dom = <Register getstatus={this.getstatus} />;
         break;
       case 'Login':
         Dom = <Login getstatus={this.getstatus} />;
         break;
-      case 'ComponentType':
-        Dom = <ComponentType />;
+      case 'Class' :
+       Dom = <Content1 />;
+       break;
+       case 'type' :
+       Dom = <Content2 />;
+       break;
+        case 'senior' :
+        Dom = <Content3/>;
         break;
-      case 'Install':
-        Dom = <Install />;
-        break;
-      case 'Cass':
-        Dom = <Cass />;
-        break;
-      case 'LifeCycle':
-        Dom = <LifeCycle />;
-        break;
-      case 'Classdiff':
-        Dom = <Classdiff />;
-        break;
-      case 'PropsContent':
-        Dom = <PropsContent />;
-        break;
-      case 'Questionnaire':
-        Dom = <Questionnaire />;
-        break;
+        case 'question':
+          Dom = <Question/>
     }
     return (
       <React.Fragment>
@@ -71,7 +67,10 @@ class Index extends Component {
         ) : this.state.isCom == 'Login' ? (
           <Login getstatus={this.getstatus} />
         ) : (
-          <Mylayout getstatus={this.getstatus}>{Dom}</Mylayout>
+          <Layzy onchangeconsts={this.changeconsts}>
+           
+           {Dom}
+        </Layzy>
         )}
       </React.Fragment>
     );

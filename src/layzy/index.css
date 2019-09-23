@@ -1,0 +1,17 @@
+.name{
+    margin: 0px 351px;
+    list-style: none;
+    font-size:25px;
+}
+.name li{
+    float: left;
+}
+.span{
+    margin-top:10px;
+    margin-left:20px;
+    font-size:10px;
+
+}
+.ant-menu{
+    float: left;
+}

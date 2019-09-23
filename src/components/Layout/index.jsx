@@ -3,28 +3,9 @@ import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
 // 左侧一级导航的数据
 const leftNav = [
-  {
-    iconType: 'video-camera',
-    text: '受控组件和非受控组价',
-    hash: 'ComponentType',
-    id: '1'
-  },
-  { iconType: 'video-camera', text: 'form表单用法', hash: 'Install', id: '2' },
-  { iconType: 'read', text: '表单的使用', hash: 'Cass', id: '3' },
-  { iconType: 'save', text: '边界错误', hash: 'LifeCycle', id: '4' },
-  {
-    iconType: 'switcher',
-    text: 'React中的列表和diff',
-    hash: 'PropsContent',
-    id: '5'
-  },
-  {
-    iconType: 'video-camera',
-    text: 'event事件对象',
-    hash: 'Classdiff',
-    id: '6'
-  },
-  { iconType: 'video-camera', text: '调查问卷', hash: 'Questionnaire', id: '7' }
+  { iconType: 'read', text: '初级笔记', id: 'Primary' },
+  { iconType: 'save', text: '中级笔记', id: 'Intermediate' },
+  { iconType: 'switcher', text: 'react高级笔记', id: 'Senior' }
 ];
 export default class Mylayout extends React.Component {
   constructor() {
@@ -40,7 +21,8 @@ export default class Mylayout extends React.Component {
       collapsed: !this.state.collapsed
     });
   };
-  render(props) {
+
+  render() {
     /*
     Layout:容器组件，包裹组件
     Sider：侧边栏，放导航的
@@ -48,18 +30,17 @@ export default class Mylayout extends React.Component {
     Menu：做折叠导航的组件
     Content：内容展示组件【重要】
     */
-    const { getstatus } = this.props;
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            {leftNav.map((item, index) => {
+            {leftNav.map(item => {
               return (
                 <Menu.Item
-                  key={index}
+                  key={item.id}
                   onClick={() => {
-                    getstatus(item.hash);
+                    this.props.getsoudata(item.id);
                   }}
                 >
                   <Icon type={item.iconType} />
