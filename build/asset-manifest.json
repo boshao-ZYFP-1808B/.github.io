@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "./static/css/main.dc5c3e06.chunk.css",
+    "main.js": "./static/js/main.67f5c13e.chunk.js",
+    "main.js.map": "./static/js/main.67f5c13e.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.194240a4.js",
+    "runtime-main.js.map": "./static/js/runtime-main.194240a4.js.map",
+    "static/css/2.96121624.chunk.css": "./static/css/2.96121624.chunk.css",
+    "static/js/2.a9b32bc6.chunk.js": "./static/js/2.a9b32bc6.chunk.js",
+    "static/js/2.a9b32bc6.chunk.js.map": "./static/js/2.a9b32bc6.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.fbc2b2e000847d920adef51847c55bcc.js": "./precache-manifest.fbc2b2e000847d920adef51847c55bcc.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.96121624.chunk.css.map": "./static/css/2.96121624.chunk.css.map",
+    "static/css/main.dc5c3e06.chunk.css.map": "./static/css/main.dc5c3e06.chunk.css.map",
+    "static/media/index.scss": "./static/media/login.b8580516.jpg",
+    "static/media/图片.jpg": "./static/media/图片.e5fdc4d9.jpg"
+  }
+}
